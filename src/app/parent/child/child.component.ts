@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Book } from '../../../model/book';
+
 
 @Component({
   selector: 'app-child',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './child.component.css'
 })
 export class ChildComponent {
-
+  @Input()
+  book: Book;
 }
