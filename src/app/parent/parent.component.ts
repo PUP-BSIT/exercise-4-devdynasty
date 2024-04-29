@@ -30,4 +30,32 @@ export class ParentComponent {
       genre: "Romance"
     }
   ]
+  
+  newId: number;
+  newTitle: string;
+  newAuthor: string;
+  newPublishedYear: number;
+  newGenre: string;
+
+  isClickToAddBook = false;
+
+  showForm() {
+    this.isClickToAddBook = !this.isClickToAddBook;
+  }
+
+  
+  addNewBook() {
+    this.booksToChild.push({
+      id: this.newId,
+      title: this.newTitle,
+      author: this.newAuthor,
+      publishedYear: this.newPublishedYear,
+      genre: this.newGenre
+    })
+    this.newId = null
+    this.newTitle = '';
+    this.newAuthor = '';
+    this.newPublishedYear = null;
+    this.newGenre = '';
+  }
 }
