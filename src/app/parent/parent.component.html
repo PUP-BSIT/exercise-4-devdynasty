@@ -1,1 +1,3 @@
-<p>parent works!</p>
+<div *ngFor="let book of booksToChild">
+    <app-child [book]="book"></app-child>
+</div>
