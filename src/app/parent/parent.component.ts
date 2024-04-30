@@ -67,4 +67,8 @@ export class ParentComponent {
       this.booksToChild[index] = { ...updatedBook };
     }
   }
+  
+  deleteBook(bookId: number) {
+    this.booksToChild = this.booksToChild.filter(book => book.id !== bookId);
+  }
 }

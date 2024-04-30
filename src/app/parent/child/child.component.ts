@@ -12,6 +12,8 @@ export class ChildComponent {
   book: Book;
   @Output() 
   edit = new EventEmitter<Book>();
+  @Output() 
+  delete = new EventEmitter<number>();
 
   editing = false;
   editBook: Book;
@@ -32,5 +34,9 @@ export class ChildComponent {
   onCancel() {
     this.editing = false;
     this.editBook = { ...this.book };
+  }
+
+  onDelete() {
+    this.delete.emit(this.book.id);
   }
 }
