@@ -13,6 +13,42 @@
                 <strong>Published Year:</strong> {{ book?.publishedYear }}
             </p>
             <p class="card-text"><strong>Genre:</strong> {{ book?.genre }}</p>
+            <button 
+                type="button" 
+                class="btn btn-primary me-2" 
+                (click)="onEdit()">
+                Edit
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="editing">
+        <div class="form-group">
+            <label>Title:</label>
+            <input 
+                type="text" [(ngModel)]="editBook.title" 
+                class="form-control">
+            <label>Author:</label>
+            <input 
+                type="text" [(ngModel)]="editBook.author" 
+                class="form-control">
+            <label>Published Year:</label>
+            <input 
+                type="number" 
+                [(ngModel)]="editBook.publishedYear" 
+                class="form-control">
+            <label>Genre:</label>
+            <input 
+                type="text" [(ngModel)]="editBook.genre" 
+                class="form-control">
+            <div class="mt-2">
+                <button class="btn btn-success me-2" (click)="onSave()">
+                    Save
+                </button>
+                <button class="btn btn-secondary" (click)="onCancel()">
+                    Cancel
+                </button>
+            </div>
         </div>
     </div>
 </div>

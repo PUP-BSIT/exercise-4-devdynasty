@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../../../model/book';
 
 
@@ -10,4 +10,27 @@ import { Book } from '../../../model/book';
 export class ChildComponent {
   @Input()
   book: Book;
+  @Output() 
+  edit = new EventEmitter<Book>();
+
+  editing = false;
+  editBook: Book;
+
+  ngOnInit() {
+    this.editBook = { ...this.book };
+  }
+
+  onEdit() {
+    this.editing = true;
+  }
+
+  onSave() {
+    this.edit.emit(this.editBook);
+    this.editing = false;
+  }
+
+  onCancel() {
+    this.editing = false;
+    this.editBook = { ...this.book };
+  }
 }
