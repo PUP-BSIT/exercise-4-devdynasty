@@ -36,7 +36,9 @@
                         name="author">
                 </div>
                 <div class="mb-3">
-                    <label for="publishedYear" class="form-label">Published Year</label>
+                    <label for="publishedYear" class="form-label">
+                        Published Year
+                    </label>
                     <input 
                         type="number" 
                         class="form-control" 
@@ -62,5 +64,5 @@
     </div>
 </div>
 <div *ngFor="let book of booksToChild">
-    <app-child [book]="book"></app-child>
+    <app-child [book]="book" (edit)="editBook($event)"></app-child> 
 </div>

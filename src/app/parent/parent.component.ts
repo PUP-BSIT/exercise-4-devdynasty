@@ -58,4 +58,13 @@ export class ParentComponent {
     this.newPublishedYear = null;
     this.newGenre = '';
   }
+
+  editBook(updatedBook: Book) {
+    const index = this.booksToChild.findIndex(
+      book => book.id === updatedBook.id
+    );
+    if (index !== -1) {
+      this.booksToChild[index] = { ...updatedBook };
+    }
+  }
 }
