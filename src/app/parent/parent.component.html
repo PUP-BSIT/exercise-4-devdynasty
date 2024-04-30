@@ -64,5 +64,5 @@
     </div>
 </div>
 <div *ngFor="let book of booksToChild">
-    <app-child [book]="book" (edit)="editBook($event)"></app-child> 
+    <app-child [book]="book" (delete)="deleteBook($event)" (edit)="editBook($event)"></app-child> 
 </div>
